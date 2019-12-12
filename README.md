@@ -5,11 +5,15 @@ application up and running.
 
 Things you may want to cover:
 
-* Ruby version
+* Semantic Versioning 2.0.0: https://semver.org/
 
-* System dependencies
+* Ruby version: ruby 2.6.3
 
-* Configuration
+* Rails version: Rails 6.0.0
+
+* System dependencies: need instal nodejs, after instal "rails webpacke:install" for start project
+
+* Configuration: no special configuration is required
 
 * Database creation
 
