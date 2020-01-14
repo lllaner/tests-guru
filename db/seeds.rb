@@ -13,10 +13,10 @@ Test.delete_all
 Category.delete_all
 
 # => Users
-user1 = User.create(name: 'Vlad')
-user2 = User.create(name: 'Vania')
-user3 = User.create(name: 'Alex')
-user4 = User.create(name: 'Moder')
+user1 = User.create(name: 'Vlad',email: 'vlad@example.com')
+user2 = User.create(name: 'Vania',email: 'vania@example.com')
+user3 = User.create(name: 'Alex',email: 'alex@example.com')
+user4 = User.create(name: 'Moder',email: 'moder@example.com')
 
 # => Category
 category1 = Category.create(title: 'Frontend')
