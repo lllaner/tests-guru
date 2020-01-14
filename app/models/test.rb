@@ -4,8 +4,8 @@ class Test < ApplicationRecord
   has_and_belongs_to_many :users
   belongs_to :author, class_name: 'User', foreign_key: 'author_id'
 
-  validates :body, presence: true
-  validates :title, uniqueness: true
+  validates :title, presence: true
+  validates :title, uniqueness: { scope: :level }
   validates :level, numericality: { only_integer: true, greater_than: -1 }
 
   default_scope { order(created_at: :desc) }
