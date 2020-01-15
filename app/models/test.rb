@@ -6,14 +6,19 @@ class Test < ApplicationRecord
 
   default_scope { order(created_at: :desc) }
 
-  scope :easy, -> { where(level: 0..1) }
-  scope :middle, -> { where(level: 2..4) }
-  scope :high, -> { where(level: 5..Float::INFINITY) }
-  scope :category_desc, ->(title) { joins(:category).where(categories: { title: title }).order(title: :desc) }
+  scope :difficulty, ->(range) { where(level: range) }
+  scope :easy, -> { difficulty(0..1) }
+  scope :middle, -> { difficulty(2..4) }
+  scope :high, -> { difficulty(5..Float::INFINITY) }
+  scope :get_category, ->(title) { joins(:category).where(categories: { title: title }) }
 
-  validates :title, presence: true
-  validates :title, uniqueness: { scope: :level }
+  validates :title, presence: true,
+                    uniqueness: { scope: :level }
   validates :level, numericality: { only_integer: true, greater_than: -1 }
 
-
+  class << self
+    def category_desc(title)
+      get_category(title).order(title: :desc).pluck(:title)
+    end
+  end
 end
