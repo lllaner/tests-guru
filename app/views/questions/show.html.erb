@@ -1,0 +1,4 @@
+<% @question.attributes.each do | k, v | %>
+  <p><%="#{k}: #{v}"%></p>
+<% end %>
+<p><%= link_to 'Destroy', @question, method: :delete, data:{ confirm: 'Are you shure?' }%></p>
