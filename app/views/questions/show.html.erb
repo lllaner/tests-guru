@@ -5,9 +5,8 @@
     </th>
   </tr>
   <tr>
-    <td>
-      <%= @question.body %>      
-    </td>
+  <td><%= @question.body %></td>
+  <td><%= link_to 'Edit', edit_question_path(@question) %></td>
   </tr>
 </table>
 <%= link_to 'Back', @question.test %>
