@@ -38,6 +38,8 @@ question2 = Question.create(body: 'what is result 2 plus 2?', test_id: test5.id)
 question3 = Question.create(body: 'what do style box-shadow?', test_id: test3.id)
 question4 = Question.create(body: 'what do command echo?', test_id: test4.id)
 question5 = Question.create(body: 'what is selector?', test_id: test1.id)
+question6 = Question.create(body: 'what is tag?', test_id: test1.id)
+
 
 # => Answer
 answer1 = Answer.create(body: 'show in consol text', question_id: question1.id)
