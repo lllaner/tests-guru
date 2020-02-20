@@ -1,0 +1,15 @@
+  <table>
+    </tr>
+      <th>Question</th>
+      <th colspan="3">Actions</th>
+    <tr>
+    <% @test.questions.find_each do |question| %>
+    <tr>
+      <td><%= question.body %></td>  
+      <td><%= link_to 'Show', question_path(question) %></td>
+      <td><%= link_to 'Edit', edit_question_path(question) %></td>
+    </tr>
+    <% end %>
+  </table>
+  
+
