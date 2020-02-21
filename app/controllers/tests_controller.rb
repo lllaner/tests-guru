@@ -5,7 +5,7 @@ class TestsController < ApplicationController
   end
 
   def show
-    @test
+
   end
 
   private

@@ -1,9 +1,9 @@
 module TestsHelper
   def github_url(author, rep)
-  link  = "https://github.com/#{author}/#{rep}"
+    link_to 'Test-gutu', "https://github.com/#{author}/#{rep}", target: '_blank'
   end
 
   def year_now
-    year = "#{Time.current.year} year"
+    "#{Time.current.year} year"
   end
 end
