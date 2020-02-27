@@ -1,4 +1,12 @@
-<% @question.attributes.each do | k, v | %>
-  <p><%="#{k}: #{v}"%></p>
-<% end %>
-<p><%= link_to 'Destroy', @question, method: :delete, data:{ confirm: 'Are you shure?' }%></p>
+<table>
+  <tr>
+    <th>
+      Question
+    </th>
+  </tr>
+  <tr>
+  <td><%= @question.body %></td>
+  <td><%= link_to 'Edit', edit_question_path(@question) %></td>
+  </tr>
+</table>
+<%= link_to 'Back', @question.test %>

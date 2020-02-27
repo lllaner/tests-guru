@@ -1,0 +1,20 @@
+<%= form_with model: @model, local: true do |form| %>
+  <% if @question.errors.present?  %>
+    <div>
+      <h2>Errors detected: </h2>
+
+      <ul>
+        <% @question.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
+    <%= form.label :body %>
+    <%= form.text_field :body %>
+  </p><br>
+
+  <p><%= form.submit %></p> 
+<% end %>
