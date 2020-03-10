@@ -1,3 +1,14 @@
 <h1>Test : <%= @test.title %></h1>
-<%= render 'questions'%>
+
+<p>Create a new question</p>
+<%= link_to 'New question', new_test_question_path(@test) %>
+<table>
+    </tr>
+      <th>Question</th>
+      <th>Position</th>
+      <th colspan="4">Actions</th>
+    <tr>
+<%= render @test.questions%>
+</table>
+
 <%= link_to 'Back', tests_path %>

@@ -1,5 +1,9 @@
 <tr >
-  <td style="border-bottom: 1px solid"><%= test.title %> ,<br> questions: (<%= test.questions.length %>)</td>
+  <td><%= test.title %></td>
   <td><%= test.level %></td>
+  <td><%= test.questions.length %></td>
   <td><%= link_to 'Show', test_path(test) %></td>
+  <td><%= link_to 'Edit', edit_test_path(test) %></td>
+  <td><%= button_to 'Start', start_test_path(test) %></td>
+
 </tr>

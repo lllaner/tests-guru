@@ -1,6 +1,6 @@
 class QuestionsController < ApplicationController
-  before_action :find_question, only: [:destroy, :show, :edit,:update]
-  before_action :find_test, only: [:new, :create, :edit]
+  before_action :find_question, only: %i[destroy show edit update]
+  before_action :find_test, only: %i[new create destroy]
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
   def show
@@ -9,12 +9,10 @@ class QuestionsController < ApplicationController
 
   def new
     @question = Question.new
-    model = [@test,@question]
   end
 
   def edit
 
-    @model = [@question]
   end
 
   def update
@@ -27,7 +25,7 @@ class QuestionsController < ApplicationController
 
   def destroy
     @question.destroy
-    redirect_to "/tests/#{@question.test_id}/questions"
+    redirect_to question.test
   end
   
   def create
@@ -50,11 +48,11 @@ class QuestionsController < ApplicationController
   end
 
   def find_test
-    @test =  @question.nil? ? Test.find(params[:test_id]) : @question.test  
+    @test = @question.nil? ? Test.find(params[:test_id]) : @question.test  
 
   end
 
   def question_params
-    params.require(:question).permit(:body)
+    params.require(:question).permit(:body, :position)
   end
 end
