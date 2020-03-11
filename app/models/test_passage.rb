@@ -6,6 +6,8 @@ class TestPassage < ApplicationRecord
   before_validation :before_validation_set_first_question, on: :create
   before_update :before_update_set_next_question
   
+  PERCENT_RIGTH = 85
+
   def completed?
     current_question.nil?
   end
@@ -18,6 +20,21 @@ class TestPassage < ApplicationRecord
     save!
   end
 
+  def percent_right_answers
+    (self.correct_questions.to_f / self.test.questions.size.to_f)*100
+  end
+
+  def percent_right_answers?
+    percent_right_answers >= PERCENT_RIGTH
+  end
+
+  def current_number_question
+    test.questions.count - test.questions.order(:id).where('id > ?', current_question.id).count
+  end
+
+  def all_questions
+    test.questions.count
+  end
   private
 
   def before_validation_set_first_question

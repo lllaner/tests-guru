@@ -45,14 +45,14 @@ class QuestionsController < ApplicationController
 
   def rescue_with_question_not_found
     render plain: 'Question not found'
+    edit_questions_path
   end
 
   def find_test
-    @test = @question.nil? ? Test.find(params[:test_id]) : @question.test  
-
+    @test = Test.find(params[:test_id])
   end
 
   def question_params
-    params.require(:question).permit(:body, :position)
+    params.require(:question).permit(:body)
   end
 end

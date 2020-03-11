@@ -15,14 +15,6 @@
     <%= form.label :body %>
     <%= form.text_field :body %>
   </p><br>
-
-<% unless @question.new_record? %>
-  <p>
-    <%= form.label :position %>
-    <%= form.text_field :position %>
-  </p>
-<% end %>
   
-
   <p><%= form.submit %></p> 
 <% end %>
