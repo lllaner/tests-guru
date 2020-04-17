@@ -1,5 +1,4 @@
 class SessionsController < ApplicationController
-  include SessionsHelper
 
   skip_before_action :authenticate_user!
 
@@ -11,7 +10,7 @@ class SessionsController < ApplicationController
     user = User.find_by(email: params[:email])
 
     if user&.authenticate(params[:password])
-      log_in(user)
+      session[:user_id] = user.id
       redirect_to cookies[:request_path]
     else
       flash.now[:alert] = "Are you Guru? Verify your Email and Password please"
@@ -20,7 +19,8 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    log_out
+    session.delete(:user_id)
+    cookies[:request_path] = nil
     redirect_to login_path
   end
 end

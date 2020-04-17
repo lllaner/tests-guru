@@ -25,7 +25,7 @@ class QuestionsController < ApplicationController
 
   def destroy
     @question.destroy
-    redirect_to question.test
+    redirect_to @question.test
   end
   
   def create
@@ -45,7 +45,6 @@ class QuestionsController < ApplicationController
 
   def rescue_with_question_not_found
     render plain: 'Question not found'
-    edit_questions_path
   end
 
   def find_test
