@@ -1,10 +1,10 @@
-<%= form_with model: [@test, @question], local: true do |form| %>
-  <% if @question.errors.present?  %>
+<%= form_with model: [@question, @answer], local: true do |form| %>
+  <% if @answer.errors.present?  %>
     <div>
       <h2>Errors detected: </h2>
 
       <ul>
-        <% @question.errors.full_messages.each do |message| %>
+        <% @answer.errors.full_messages.each do |message| %>
           <li><%= message %></li>
         <% end %>
       </ul>
@@ -15,6 +15,10 @@
     <%= form.label :body %>
     <%= form.text_field :body %>
   </p><br>
-  
+  <p>
+    <%= form.check_box :correct %>
+      <%= form.label :correct%>
+  </p>
+
   <p><%= form.submit %></p> 
 <% end %>

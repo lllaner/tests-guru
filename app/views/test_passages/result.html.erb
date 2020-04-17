@@ -1,0 +1,9 @@
+<h2>Вы ответели правильно на  <%= @test_passage.percent_right_answers %>% вопросов</h2>
+<% if @test_passage.percent_right_answers? %>
+  <h1 style="color: green;">Вы успешно прошли тест</h1>   
+ <% else %>
+   <h1 style="color: red;">Вы провалили тест</h1>
+ <% end %> 
+ <br>
+
+<%= link_to 'Back to tests', tests_path %>
