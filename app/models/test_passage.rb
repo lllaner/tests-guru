@@ -24,7 +24,7 @@ class TestPassage < ApplicationRecord
     (self.correct_questions.to_f / self.test.questions.size.to_f)*100
   end
 
-  def percent_right_answers?
+  def success?
     percent_right_answers >= PERCENT_RIGTH
   end
 
