@@ -5,7 +5,7 @@ module User::Auth
   included do
     validates :name, presence: true
     validates :email, presence: true
-    validates :password, presence: true, if: Proc.new { |u| u.password_digest.blank? } 
+    validates :password, presence: true, if: Proc.new { |u| u.password_digest.blank? }
     validates :password, confirmation: true
   end
 
