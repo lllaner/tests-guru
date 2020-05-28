@@ -1,11 +1,9 @@
-<h2>Вы ответели правильно на  <%= @test_passage.percent_right_answers %>% вопросов</h2>
+<p class="h2">Вы ответели правильно на  <%= @test_passage.percent_right_answers %>% вопросов</p>
 <% if @test_passage.success? %>
-  <h1 style="color: green;">
-    <%= t('.success', title: @test_passage.test.title) %>
-  </h1>
+  <p class="h1 text-success"><%= t('.success', title: @test_passage.test.title) %></p>
  <% else %>
-   <h1 style="color: red;"><%= t('.lose', title: @test_passage.test.title) %></h1>
+   <p class="h1 text-danger"><%= t('.lose', title: @test_passage.test.title) %></p>
  <% end %>
  <br>
 
-<%= link_to 'Back to tests', tests_path %>
+<%= link_to 'Back to tests', tests_path , class: 'btn btn-primary'%>

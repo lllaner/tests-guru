@@ -1,10 +1,14 @@
-<h1><%=  t('.header') %></h1>
-<table>
-  <tr>
-    <th><%= t('.title') %></th>
-    <th><%= t('.level') %></th>
-    <th><%= t('.questions') %></th>
-    <th><%= t('.actions') %></th>
-  </tr>
-<%= render @tests %>
+<h1 class="text-center"><%=  t('.header') %></h1>
+<table class="table table-borderless">
+  <thead class="thead-dark">
+    <tr class="text-center" >
+      <th><%= t('.title') %></th>
+      <th><%= t('.level') %></th>
+      <th><%= t('.questions') %></th>
+      <th><%= t('.actions') %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @tests %>
+  </tbody>
 </table>
