@@ -42,6 +42,11 @@ gem "select2-rails"
 
 gem 'devise', '~> 4.0'
 
+
+# LOCALIZATION
+
+gem 'rails-i18n'
+
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'web-console', '>= 3.3.0'
@@ -51,6 +56,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'pry', '~> 0.12.2'
+  gem 'rubocop'
 end
 
 group :test do

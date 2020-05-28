@@ -1,0 +1,47 @@
+ru:
+  activerecord:
+    models:
+      admin: "Администратор"
+      user: "Пользователь"
+      answer: "Ответ"
+      question: "Вопрос"
+      test_passages: "Прохождение теста"
+      test: "Тест"
+      tests_user: "Тест Пользователь"
+
+    attributes:
+      test:
+        title: "Название"
+        level: "Уровень"
+        category_id: "Категория"
+        author_id: "Автор"
+      answer:
+        body: "Описание"
+        correct: "Правильный"
+        question_id: "Вопрос"
+      category:
+        title: "Название"
+      question:
+        body: "Описание"
+        test_id: "Тест"
+      test_passage:
+        user_id: "Пользователь"
+        test_id: "Тест"
+        current_questions_id: "Текущий вопрос"
+        correct_questions: "Правильных вопросов"
+      tests_user:
+        user_id: "Пользователь"
+        test_id: "Тест"
+      user:
+        name: "Никнейм"
+        email: "Эмейл"
+        first_name: "Имя"
+        last_name: "Фамилия"
+        password: "Пароль"
+        remember_me: "Запомнить"
+
+    errors:
+      messages:
+        blank: "не может быть пустым"
+        required: "обязательно для заполнения"
+        not_a_number: "не числовое значение"

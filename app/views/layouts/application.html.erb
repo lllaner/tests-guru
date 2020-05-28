@@ -11,10 +11,17 @@
 
   <body>
     <% if user_signed_in? %>
-      <p class="nav user">
-      Welcome, <b><%= current_user.email %> GURU |
-      <%= link_to  "Logout", destroy_user_session_path, method: :delete %>
-      </p>
+
+
+      <div class="nav user">
+        <div class="nav_left">
+          <%= link_to 'TestGuru Admin Panel', admin_tests_path %>
+        </div>
+        <div class="nav_right">
+          <p>Welcome, <b><%= current_user.email %> GURU | </b></p>
+          <%= link_to  "Logout", destroy_user_session_path, method: :delete %>
+        </div>
+      </div>
     <% end %>
     <%= render 'shared/flash' %>
     <%= yield %>

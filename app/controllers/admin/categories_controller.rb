@@ -9,7 +9,6 @@ class Admin::CategoriesController < Admin::BaseController
     @category
   end
 
-
   def new
     @category = Category.new
   end
@@ -41,7 +40,6 @@ class Admin::CategoriesController < Admin::BaseController
   def set_category
     @category = Category.find(params[:id])
   end
-
 
   def category_params
     params.require(:category).permit(:title)

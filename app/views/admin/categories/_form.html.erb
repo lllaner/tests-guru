@@ -1,16 +1,5 @@
 <%= form_with model:[:admin, @category] , local: true do |form| %>
-  <% if @category.errors.present?  %>
-    <div>
-      <h2>Errors detected: </h2>
-
-      <ul>
-        <% @category.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
+  <%= render 'shared/errors', resource: @category %>
   <p>
     <%= form.label :title %>
     <%= form.text_field :title %>

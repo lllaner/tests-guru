@@ -1,2 +1,48 @@
 ru:
-  hello: "Привет мир"
+  helpers:
+    submit:
+      test:
+        create: "Создать Тест"
+        update: "Обновить Тест"
+
+  shared:
+    errors:
+      header:
+        few: "Обнаружено %{count} ошибки "
+        many: "Обнаружено %{count} ошибок"
+        one: "Обнаружена %{count} ошибка"
+        other: "Обнаружено %{count} ошибки"
+
+  tests:
+    index:
+      header: "Доступные тесты"
+      title: "Название"
+      level: "Уровень"
+      questions: "Вопросов"
+      actions: "Действия"
+    test:
+      start: 'Начать'
+  test_passages:
+    result:
+      success: "Тест %{title} успешно завершен"
+      lose: Вы провалили %{title} Тест
+
+  admin:
+    tests:
+      create:
+        success: "Тест был успешно создан."
+      index:
+        header: "Доступные тесты"
+        title: "Название"
+        level: "Уровень"
+        questions: "Вопросов"
+        actions: "Действия"
+        create: "Создать Тест"
+      test:
+        show: "Смотреть"
+        edit: "Редактировать"
+        delete: "Удалить"
+
+  tests_mailer:
+    completed_test:
+      subject: "Вы успешно завершили тест гуру"

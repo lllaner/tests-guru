@@ -1,3 +1,26 @@
-.nav.user{
-  text-align:right;
+.nav a{
+  text-decoration: none;
+  color: #fff;
+}
+.nav a:hover{
+  color: #000;
+}
+.nav{
+  box-sizing: border-box;
+  padding: 10px 20px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #337ab7;
+}
+.nav_right{
+  display: flex;
+  align-items: center;
+  color: #fff;
+}
+.nav_left {
+  font-size: 22px;
+  font-weight: 600;
 }

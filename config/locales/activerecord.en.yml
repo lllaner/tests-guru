@@ -1,0 +1,47 @@
+en:
+  activerecord:
+    models:
+      admin: "Admin"
+      user: "User"
+      answer: "Answer"
+      question: "Question"
+      test_passages: "Test passage"
+      test: "Test"
+      tests_user: "Test User"
+
+    attributes:
+      test:
+        title: "Title"
+        level: "Level"
+        category_id: "Category"
+        author_id: "Author"
+      answer:
+        body: "Description"
+        correct: "Correct"
+        question_id: "Question"
+      category:
+        title: "Title"
+      question:
+        body: "Description"
+        test_id: "Test"
+      test_passage:
+        user_id: "User"
+        test_id: "Test"
+        current_questions_id: "Current question"
+        correct_questions: "Correct questions"
+      tests_user:
+        user_id: "User"
+        test_id: "Test"
+      user:
+        name: "Nikname"
+        email: "Email"
+        first_name: "First Name"
+        last_name: "Last Name"
+        password: "Password"
+        remember_me: "Remember me"
+
+    errors:
+      messages:
+        blank: "can't be blank"
+        required: "must exist"
+        not_a_number: "not a number"
