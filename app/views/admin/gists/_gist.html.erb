@@ -1,5 +1,5 @@
 <tr class="text-center">
   <td><%= link_to gist.url, gist.full_url %></td>
     <td><%= gist.user.email %></td>
-  <td><%= link_to truncate(gist.question.body, length: 28), admin_question_path(gist.question) %></td>
+  <td><%= link_to truncate(gist.question.body, length: 25), admin_question_path(gist.question) %></td>
 </tr>

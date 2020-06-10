@@ -1,6 +1,7 @@
 class TestPassagesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_test_passage, only: %i[show update result gist]
+  before_action :set_gist_service, only: %i[gist]
 
   def show
 
@@ -11,15 +12,20 @@ class TestPassagesController < ApplicationController
   end
 
   def gist
-    gist = GistQuestionService.new(@test_passage.current_question)
-    response = gist.call
-    if gist.success?
-      flash_options = { notice: response.html_url }
-      p 'helloooooooooo'
-      p @test_passage.current_question.id
-      p current_user.gists.create!(url: response.id, question_id: @test_passage.current_question.id)
+    if @gist_service.autheticate
+      response = @gist_service.call
+      if @gist_service.success?
+        flash_options = { notice: response.html_url }
+        begin
+          current_user.gists.create!(url: response.id, question_id: @test_passage.current_question.id)
+        rescue StandartError => e
+          flash_options = { alert: e.message }
+        end
+      else
+        flash_options = { alert: @gist_service.errors }
+      end
     else
-      flash_options = { alert: response }
+      flash_options = { alert: @gist_service.errors }
     end
 
     redirect_to @test_passage, flash_options
@@ -40,5 +46,9 @@ class TestPassagesController < ApplicationController
 
   def set_test_passage
     @test_passage = TestPassage.find(params[:id])
+  end
+
+  def set_gist_service
+    @gist_service = GistQuestionService.new(@test_passage.current_question)
   end
 end

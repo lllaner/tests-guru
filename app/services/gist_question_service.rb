@@ -1,20 +1,36 @@
 class GistQuestionService
-  ROOT_ENDPOINT = 'https://api.github.com'.freeze
-  ACCESS_TOKEN = ENV['GITHUB_TOKEN']
   def initialize(question, client: nil)
     @question = question
     @test = @question.test
-    @client = Octokit::Client.new(access_token: ACCESS_TOKEN)
   end
 
   def call
     @client.create_gist(gist_params)
-  rescue Octokit::Unauthorized => e
-    e.message
   end
 
   def success?
-    !!@client.last_response
+    if @client.last_response.status == 201
+      true
+    else
+      @error = "Error: #{@client.last_response.status}"
+      false
+    end
+  end
+
+  def errors
+    @error
+  end
+
+  def not_errors
+    !errors
+  end
+
+  def autheticate
+    @client = Octokit::Client.new(access_token: ENV['GITHUB_TOKEN'])
+    @client if @client.user
+  rescue Octokit::Unauthorized => e
+    @error = e.message
+    false
   end
 
   private
