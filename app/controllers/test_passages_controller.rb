@@ -12,17 +12,13 @@ class TestPassagesController < ApplicationController
 
   def gist
     gist_service = GistQuestionService.new(@test_passage.current_question)
-    if gist_service.errors.any?
-      flash_options = { alert: gist_service.errors }
-    else
-      response = gist_service.call
-      flash_options = if gist_service.success?
-                        @test_passage.current_question.gists.create(user:current_user, url: response.id)
-                        { notice: response.html_url }
-                      else
-                        { alert: gist_service.errors }
-                      end
-    end
+    flash_options = if gist_service.success?
+                      response = gist_service.call
+                      @test_passage.current_question.gists.create(user:current_user, url: response.id)
+                      { notice: response.html_url }
+                    else
+                      { alert: gist_service.errors }
+                    end
 
     redirect_to @test_passage, flash_options
   end

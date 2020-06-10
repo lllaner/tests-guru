@@ -10,10 +10,13 @@ class GistQuestionService
 
   def call
     @client.create_gist(gist_params)
+
   end
 
   def success?
-    if @client.last_response.status == 201 && @errors.blank?
+    return if @errors.any?
+
+    if @client.last_response.status == 200 && @errors.blank?
       true
     else
       @errors << "Error: #{@client.last_response.status}"
@@ -22,11 +25,10 @@ class GistQuestionService
   end
 
   def autheticate
-    @client = Octokit::Client.new(access_token: ENV['GITHUB_TOKEN'])
+    @client = Octokit::Client.new(access_token: "ENV['GITHUB_TOKEN']")
     @client if @client.user
   rescue Octokit::Unauthorized => e
     @errors << e.message
-    false
   end
 
   private
