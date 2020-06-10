@@ -11,6 +11,7 @@
           <%= b.label class: 'form-check-label'%>
         </div>
       <% end %>
+    <%= link_to 'Gist Question', gist_test_passage_path(@test_passage), method: :post %>
     <%= form.submit 'Next' , class: 'btn btn-success mt-3'%>
   </div>
 <% end %>
