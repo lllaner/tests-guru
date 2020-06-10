@@ -1,19 +1,21 @@
 <%= form_with model: [:admin, @test], local: true do |form| %>
   <%= render 'shared/errors', resource: @test %>
-  <p>
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-  </p><br>
+  <div class="form-group">
+    <p>
+      <%= form.label :title %>
+      <%= form.text_field :title, class: 'form-control'%>
+    </p>
 
-  <p>
-    <%= form.label :level, class: 'hello' %>
-    <%= form.text_field :level %>
-  </p><br>
+    <p>
+      <%= form.label :level, class: 'hello' %>
+      <%= form.text_field :level, class: 'form-control' %>
+    </p>
 
-  <p>
-    <%= form.label :category_id %>
-    <%= form.select :category_id, options_for_select(@categories),{},{required: 'true', autofocus: 'true', class: 'select2'}%>
-  </p><br>
+    <p>
+      <%= form.label :category_id %>
+      <%= form.select :category_id, options_for_select(@categories),{},{required: 'true', autofocus: 'true', class: 'select2'}%>
+    </p>
 
-  <p><%= form.submit %></p>
+    <%= form.submit class: 'btn btn-success '%>
+  </div>
 <% end %>

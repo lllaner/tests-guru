@@ -1,9 +1,10 @@
-<li>
-  <%= answer.body %> <br>
-  <%= link_to 'Show', admin_answer_path(answer) %>
-  <%= link_to 'Edit',  edit_admin_answer_path(answer) %>
-  <%= link_to 'Delete',
+ <tr class="text-center">
+  <td><%= answer.body %></td>
+  <td><%= link_to 'Show', admin_answer_path(answer), class: 'text-info' %></td>
+  <td><%= link_to 'Edit',  edit_admin_answer_path(answer), class: 'text-important' %></td>
+  <td><%= link_to 'Delete',
               admin_answer_path(answer),
               method: :delete,
-              data:   { confirm: 'Are you sure?' }%>
-</li>
+              class: 'text-danger',
+              data:   { confirm: 'Are you sure?' }%></td>
+ </tr>

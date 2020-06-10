@@ -1,11 +1,4 @@
-<h1><%= @answer.question.body %> Question</h1>
-<table>
-  <tr>
-    <th>Body answer</th>
-  </tr>
-  <tr>
-  <td><%= @answer.body %></td>
-  </tr>
-</table>
-<%= link_to 'Edit', edit_admin_answer_path(@answer) %>
-<%= link_to 'Back', admin_question_path(@answer.question) %>
+<h1> Question - <%= @answer.question.body %></h1>
+<p class="h2 my-3">Answer: <%= @answer.body %></p>
+<%= link_to 'Edit', edit_admin_answer_path(@answer), class: 'btn btn-info' %>
+<%= link_to 'Back', admin_question_path(@answer.question), class: 'btn btn-primary' %>

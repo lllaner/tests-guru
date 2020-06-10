@@ -8,6 +8,8 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 import $ from 'jquery'
+import 'popper.js'
+import 'bootstrap'
 import 'select2'
 $(document).on('turbolinks:load', function() {
   $('.select2').select2({theme: "bootstrap"})
