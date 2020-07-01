@@ -21,16 +21,20 @@ gem 'jbuilder', '~> 2.7'
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
 gem 'bcrypt', '~> 3.1.7'
-
+gem 'dotenv-rails'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'coffee-rails'
-
+gem 'octokit'
 gem 'twitter-bootstrap-rails'
 gem 'uglifier'
+
+# NETWORKING
+
+gem 'faraday'
 
 # UI
 gem 'bootstrap', '~> 4.5.0'

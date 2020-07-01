@@ -1,5 +1,12 @@
 <nav class="navbar navbar-light bg-light">
-  <%= link_to 'TestGuru', set_brand_path, class: 'navbar-brand' %>
+  <div class="navbar-brand d-flex">
+    <%= link_to 'TestGuru', root_path, class: 'nav-link text-info' %>
+    <% if current_user&.admin? %>
+      <%= link_to 'Admin panel', admin_tests_path, class: 'nav-link' %>
+      <%= link_to 'Gists', admin_gists_path, class: 'nav-link' %>
+    <% end %>
+  </div>
+
   <span class="navbar-text">
     <% if user_signed_in? %>
       Welcome, <b><%= current_user.email %></b> GURU |

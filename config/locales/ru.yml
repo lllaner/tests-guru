@@ -26,6 +26,9 @@ ru:
     result:
       success: "Тест %{title} успешно завершен"
       lose: Вы провалили %{title} Тест
+    gist:
+      success: "Gist успешно сохранен"
+      failure: "Во время сохранения gist произошла ошибка "
 
   admin:
     tests:

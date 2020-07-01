@@ -25,6 +25,9 @@ en:
     result:
       success: "The %{title} Test was completed"
       lose: "%{title} Test was lose"
+    gist:
+      success: "Gist was successfully created!"
+      failure: "An error occured while saving gist "
 
   admin:
     tests:
