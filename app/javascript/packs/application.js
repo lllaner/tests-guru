@@ -9,6 +9,7 @@ require("@rails/activestorage").start()
 require("channels")
 require("packs/utilities/sorting.js")
 require("packs/utilities/password_valid.js")
+require("packs/utilities/form_inline.js")
 import $ from 'jquery'
 import 'popper.js'
 import 'bootstrap'

@@ -40,6 +40,8 @@ en:
         questions: "Questions"
         actions: "Actions"
         create: "Create Test"
+      form_inline:
+        submit: "OK"
       test:
         show: "Show"
         edit: "Edit"

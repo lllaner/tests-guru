@@ -41,6 +41,8 @@ ru:
         questions: "Вопросов"
         actions: "Действия"
         create: "Создать Тест"
+      form_inline:
+        submit: "OK"
       test:
         show: "Смотреть"
         edit: "Редактировать"
