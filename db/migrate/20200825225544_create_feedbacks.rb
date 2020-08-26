@@ -7,7 +7,5 @@ class CreateFeedbacks < ActiveRecord::Migration[6.0]
 
       t.timestamps
     end
-
-    add_column :tests, :ready, :boolean, default: false
   end
 end
