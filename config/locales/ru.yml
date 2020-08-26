@@ -34,6 +34,8 @@ ru:
     tests:
       create:
         success: "Тест был успешно создан."
+      update:
+        success: "Тест был успешно обновлен."
       index:
         header: "Доступные тесты"
         title: "Название"
