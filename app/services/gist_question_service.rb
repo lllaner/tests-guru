@@ -25,7 +25,7 @@ class GistQuestionService
   end
 
   def autheticate
-    @client = Octokit::Client.new(access_token: "ENV['GITHUB_TOKEN']")
+    @client = Octokit::Client.new(access_token: ENV['GITHUB_TOKEN'])
     @client if @client.user
   rescue Octokit::Unauthorized => e
     @errors << e.message

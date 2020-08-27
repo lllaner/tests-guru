@@ -33,6 +33,8 @@ en:
     tests:
       create:
         success: "Test was successfully created."
+      update:
+        success: "Test was successfully updated."
       index:
         header: "Tricky tests"
         title: "Title"
