@@ -1,0 +1,12 @@
+<%= form_with model: [:admin, @badge_rule], local: true do |form| %>
+  <%= render 'shared/errors', resource: @badge_rule %>
+
+  <div class="form-group">
+    <p>
+      <%= form.label :logic %>
+      <%= form.text_field :logic, class: 'form-control' %>
+    </p>
+
+    <p><%= form.submit class: 'btn btn-success mt-3' %></p>
+  </div>
+<% end %>

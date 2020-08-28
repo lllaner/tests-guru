@@ -31,6 +31,9 @@ ru:
       failure: "Во время сохранения gist произошла ошибка "
 
   admin:
+    badges:
+      index:
+        header: Бэйджи
     tests:
       create:
         success: "Тест был успешно создан."

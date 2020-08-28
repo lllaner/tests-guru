@@ -17,7 +17,9 @@ class User < ApplicationRecord
   has_many :my_tests, class_name: 'Test', foreign_key: 'author_id'
   has_many :test_passages
   has_many :gists
+  has_many :badge_users
   has_many :tests, through: :test_passages
+  has_many :badges, through: :badge_users
 
   def test_passege(test)
     test_passages.order(id: :desc).find_by(test_id: test.id)

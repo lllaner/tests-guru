@@ -31,7 +31,7 @@ gem 'coffee-rails'
 gem 'octokit'
 gem 'twitter-bootstrap-rails'
 gem 'uglifier'
-
+gem 'carrierwave'
 # NETWORKING
 
 gem 'faraday'

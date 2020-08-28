@@ -1,0 +1,5 @@
+<h1 class="text-center my-3"><%= t('.header') %></h1>
+<div class="row justify-content-center">
+  <%= render @badges %>
+</div>
+<%= link_to t('.create'), new_admin_badge_path, class: 'btn btn-success'%>

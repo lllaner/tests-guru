@@ -1,0 +1,7 @@
+<h1> Badge - <%= @badge.title %></h1>
+<div class="d-flex justify-content-center">
+  <%= image_tag(@badge.image.url, alt: 'Image', class: 'img-thumbnail') if @badge.image? %>
+</div>
+
+<%= link_to 'Edit', edit_admin_badge_path(@badge), class: 'btn btn-info' %>
+<%= link_to 'Back', admin_badges_path, class: 'btn btn-primary' %>
