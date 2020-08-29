@@ -8,9 +8,8 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :own_badges, only: %i[index show]
   resources :badges, only: %i[index show]
-
+  resources :own_badges, only: :index
   resources :test_passages, only: %i[show update] do
     member do
       get :result

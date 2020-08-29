@@ -33,6 +33,14 @@ class User < ApplicationRecord
     tests.where(level: level)
   end
 
+  def count_own_badges
+    badges = []
+    self.badges.group_by(&:id).each do |id, group|
+      badges << { badge: Badge.find(id), count: group.size }
+    end
+    badges
+  end
+
   def test_passage(test)
     test_passages.order(id: :desc).find_by(test_id: test.id)
   end

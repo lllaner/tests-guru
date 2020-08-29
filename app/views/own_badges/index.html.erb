@@ -1,0 +1,11 @@
+<h1 class="text-center my-3"><%= t('.header') %></h1>
+<div class="row justify-content-center">
+  <% @badges.each do |badge| %>
+    <div class="ml-3">
+      <h4>Получен: <%= badge[:count] %></h4>
+      <a href="<%= badge_path(badge[:badge]) %>">
+        <%= image_tag(badge[:badge].image.url, alt: 'Image', class: 'img-thumbnail', size: '200x200') if badge[:badge].image? %>
+      </a>
+    </div>
+  <% end %>
+</div>
