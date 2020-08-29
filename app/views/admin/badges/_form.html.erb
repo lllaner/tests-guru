@@ -1,0 +1,27 @@
+<%= form_with model: [:admin, @badge], local: true do |form| %>
+  <%= render 'shared/errors', resource: @badge %>
+
+    <div class="form-group">
+    <p>
+      <%= form.label :title %>
+      <%= form.text_field :title, class: 'form-control' %>
+    </p>
+
+    <p>
+      <%= form.label :image %>
+      <%= form.file_field :image, class: 'form-control' %>
+    </p>
+
+    <p>
+      <%= form.label :option %>
+      <%= form.text_field :option, class: 'form-control' %>
+    </p>
+
+    <p>
+      <%= form.label :badge_rule_id %>
+      <%= form.select :badge_rule_id, options_for_select(@badge_rules),{},{required: 'true', autofocus: 'true', class: 'select2'}%>
+    </p>
+
+    <p><%= form.submit class: 'btn btn-success mt-3' %></p>
+  </div>
+<% end %>

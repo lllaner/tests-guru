@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_26_085702) do
+ActiveRecord::Schema.define(version: 2020_08_27_235023) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,8 +20,33 @@ ActiveRecord::Schema.define(version: 2020_08_26_085702) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "correct", default: false
-    t.integer "question_id"
+    t.bigint "question_id"
     t.index ["question_id"], name: "index_answers_on_question_id"
+  end
+
+  create_table "badge_rules", force: :cascade do |t|
+    t.string "logic", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "badge_users", force: :cascade do |t|
+    t.bigint "badge_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["badge_id"], name: "index_badge_users_on_badge_id"
+    t.index ["user_id"], name: "index_badge_users_on_user_id"
+  end
+
+  create_table "badges", force: :cascade do |t|
+    t.string "title", null: false
+    t.string "image", null: false
+    t.string "option", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "badge_rule_id"
+    t.index ["badge_rule_id"], name: "index_badges_on_badge_rule_id"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -40,8 +65,8 @@ ActiveRecord::Schema.define(version: 2020_08_26_085702) do
 
   create_table "gists", force: :cascade do |t|
     t.string "url", null: false
-    t.integer "user_id", null: false
-    t.integer "question_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "question_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["question_id"], name: "index_gists_on_question_id"
@@ -52,17 +77,18 @@ ActiveRecord::Schema.define(version: 2020_08_26_085702) do
     t.string "body", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "test_id"
+    t.bigint "test_id"
     t.index ["test_id"], name: "index_questions_on_test_id"
   end
 
   create_table "test_passages", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "test_id", null: false
-    t.integer "current_question_id"
+    t.bigint "user_id", null: false
+    t.bigint "test_id", null: false
+    t.bigint "current_question_id"
     t.integer "correct_questions", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "done", default: false
     t.index ["current_question_id"], name: "index_test_passages_on_current_question_id"
     t.index ["test_id"], name: "index_test_passages_on_test_id"
     t.index ["user_id"], name: "index_test_passages_on_user_id"
@@ -73,7 +99,7 @@ ActiveRecord::Schema.define(version: 2020_08_26_085702) do
     t.integer "level", default: 1
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "category_id"
+    t.bigint "category_id"
     t.integer "author_id"
     t.boolean "ready", default: false
     t.index ["category_id"], name: "index_tests_on_category_id"
@@ -81,8 +107,8 @@ ActiveRecord::Schema.define(version: 2020_08_26_085702) do
   end
 
   create_table "tests_users", id: false, force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "test_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "test_id", null: false
     t.index ["user_id", "test_id"], name: "index_tests_users_on_user_id_and_test_id", unique: true
   end
 
@@ -114,6 +140,9 @@ ActiveRecord::Schema.define(version: 2020_08_26_085702) do
   end
 
   add_foreign_key "answers", "questions"
+  add_foreign_key "badge_users", "badges"
+  add_foreign_key "badge_users", "users"
+  add_foreign_key "badges", "badge_rules"
   add_foreign_key "gists", "questions"
   add_foreign_key "gists", "users"
   add_foreign_key "questions", "tests"

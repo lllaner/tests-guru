@@ -7,6 +7,9 @@ Rails.application.routes.draw do
       post :start
     end
   end
+
+  resources :badges, only: %i[index show]
+  resources :own_badges, only: :index
   resources :test_passages, only: %i[show update] do
     member do
       get :result
@@ -16,6 +19,8 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root 'admin/tests#index'
+    resources :badges
+    resources :badge_rules
     resources :tests do
       patch :update_inline, on: :member
 

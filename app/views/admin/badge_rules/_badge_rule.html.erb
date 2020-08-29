@@ -1,0 +1,10 @@
+ <tr class="text-center">
+  <td><%= badge_rule.logic %></td>
+  <td><%= link_to 'Show', admin_badge_rule_path(badge_rule), class: 'text-info' %></td>
+  <td><%= link_to 'Edit',  edit_admin_badge_rule_path(badge_rule), class: 'text-important' %></td>
+  <td><%= link_to 'Delete',
+              admin_badge_rule_path(badge_rule),
+              method: :delete,
+              class: 'text-danger',
+              data:   { confirm: 'Are you sure?' }%></td>
+ </tr>

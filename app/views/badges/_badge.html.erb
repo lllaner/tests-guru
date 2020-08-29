@@ -1,0 +1,5 @@
+<div class="ml-3">
+  <a href="<%= badge_path(badge) %>">
+    <%= image_tag(badge.image.url, alt: 'Image', class: 'img-thumbnail', size: '200x200') if badge.image? %>
+  </a>
+</div>
