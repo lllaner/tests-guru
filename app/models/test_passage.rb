@@ -59,7 +59,4 @@ class TestPassage < ApplicationRecord
     test.questions.order(:id).where('id > ?', current_question.id).first unless completed?
   end
 
-  def timeout?
-    !self.timedown.positive?
-  end
 end
