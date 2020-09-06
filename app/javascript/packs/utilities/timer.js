@@ -4,17 +4,16 @@ document.addEventListener('turbolinks:load', function(){
 });
 
 function startTimer() {
-  console.log(document.querySelector('.timer').dataset.countDown);
+
   var countDownDate = document.querySelector('.timer').dataset.countDown;
 
   var x = setInterval(function() {
 
+    countDownDate -= 1000;
 
-    var now = new Date().getTime();
 
+    var distance = countDownDate;
 
-    var distance = countDownDate - now;
-    console.log(`${now} ${countDownDate}  ${distance}`)
 
     var days = Math.floor(distance / (1000 * 60 * 60 * 24));
     var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));

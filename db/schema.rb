@@ -103,7 +103,6 @@ ActiveRecord::Schema.define(version: 2020_09_05_215659) do
     t.integer "author_id"
     t.boolean "ready", default: false
     t.integer "duration"
-    t.boolean "timer_enabled", default: false
     t.index ["category_id"], name: "index_tests_on_category_id"
     t.index ["title", "level"], name: "index_tests_on_title_and_level", unique: true
   end

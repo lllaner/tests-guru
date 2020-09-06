@@ -24,9 +24,10 @@ class TestPassagesController < ApplicationController
   end
 
   def update
+    binding.pry
     @test_passage.accept!(params[:answer_ids])
 
-    if @test_passage.completed?
+    if @test_passage.expired? || @test_passage.completed?
       TestsMailer.completed_test(@test_passage).deliver_now
       if @test_passage.success?
         @test_passage.update(done: true)

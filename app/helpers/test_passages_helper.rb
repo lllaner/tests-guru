@@ -8,6 +8,7 @@ module TestPassagesHelper
   end
 
   def count_down
-    (@test_passage.created_at.to_time + @test_passage.test.duration.minutes).to_i * 1000
+    (@test_passage.created_at.to_time - Time.now + @test_passage.test.duration.minutes).to_i * 1000
   end
+
 end
