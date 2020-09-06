@@ -5,7 +5,7 @@
 <div class="progress" style="height:20px">
   <div class="progress-bar" style="width:<%= progress %>%;height:20px"><%= progress %>%</div>
 </div>
-<% if @test.test.timer_enabled %>
+<% if @test_passage.test.timer_enabled? %>
   <%= content_tag :h1, nil, class: 'timer', data: {count_down: count_down, test_passage_id: @test_passage.id} %>
 <% end %>
 <%= form_with url: test_passage_path(@test_passage), local: true, method: :put  do |form| %>
