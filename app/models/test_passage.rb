@@ -36,6 +36,14 @@ class TestPassage < ApplicationRecord
     test.questions.count
   end
 
+  def expired?
+    expires_at < Time.now
+  end
+
+  def expires_at
+    created_at.to_time + self.test.duration.minutes
+  end
+
   private
 
   def before_validation_set_first_question
@@ -58,4 +66,5 @@ class TestPassage < ApplicationRecord
   def next_question
     test.questions.order(:id).where('id > ?', current_question.id).first unless completed?
   end
+
 end

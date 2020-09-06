@@ -6,4 +6,9 @@ module TestPassagesHelper
   def progress
     ((@test_passage.current_number_question.to_f - 1) / @test_passage.all_questions * 100).to_i
   end
+
+  def count_down
+    (@test_passage.created_at.to_time - Time.now + @test_passage.test.duration.minutes).to_i * 1000
+  end
+
 end

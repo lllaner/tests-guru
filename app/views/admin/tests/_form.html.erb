@@ -11,15 +11,20 @@
       <%= form.text_field :level, class: 'form-control' %>
     </p>
 
-    <div class="form-check">
-      <%= form.check_box :ready, class: 'form-check-input' %>
-      <%= form.label :ready, class: 'form-check-label'%>
-    </div>
+    <p>
+      <%= form.label :duration, class: 'hello' %>
+      <%= form.text_field :duration, class: 'form-control' %>
+    </p>
 
     <p>
       <%= form.label :category_id %>
       <%= form.select :category_id, options_for_select(@categories, form.object.category_id),{},{required: 'true', autofocus: 'true', class: 'select2'}%>
     </p>
+
+    <div class="custom-control custom-checkbox mb-3">
+      <%= form.check_box :ready, class: 'custom-control-input' %>
+      <%= form.label :ready, class: 'custom-control-label'%>
+    </div>
 
     <%= form.submit class: 'btn btn-success '%>
   </div>

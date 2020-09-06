@@ -22,4 +22,8 @@ class Test < ApplicationRecord
       get_category(title).order(title: :desc).pluck(:title)
     end
   end
+
+  def timer_enabled?
+    duration.present? && duration.positive?
+  end
 end
