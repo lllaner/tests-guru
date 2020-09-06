@@ -24,7 +24,6 @@ class TestPassagesController < ApplicationController
   end
 
   def update
-    binding.pry
     @test_passage.accept!(params[:answer_ids])
 
     if @test_passage.expired? || @test_passage.completed?
