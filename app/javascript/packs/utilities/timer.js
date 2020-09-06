@@ -1,20 +1,12 @@
 document.addEventListener('turbolinks:load', function(){
   var control = document.querySelector('.timer');
-  if(control) {
-    window.addEventListener("beforeunload", function(event) {
-      localStorage.setItem(document.querySelector('.timer').dataset.testPassageId, document.querySelector('.timer').dataset.countDown);
-      });
-    startTimer();}
+  if(control) { startTimer(); }
 });
 
 function startTimer() {
-  var countDownDate;
-  var timeStorage = localStorage.getItem(document.querySelector('.timer').dataset.testPassageId);
-  if (timeStorage) {
-    countDownDate = timeStorage;
-  } else {
-    countDownDate = document.querySelector('.timer').dataset.countDown;
-  }
+  console.log(document.querySelector('.timer').dataset.countDown);
+  var countDownDate = document.querySelector('.timer').dataset.countDown;
+
   var x = setInterval(function() {
 
 
@@ -22,7 +14,7 @@ function startTimer() {
 
 
     var distance = countDownDate - now;
-    t = distance;
+    console.log(`${now} ${countDownDate}  ${distance}`)
 
     var days = Math.floor(distance / (1000 * 60 * 60 * 24));
     var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
